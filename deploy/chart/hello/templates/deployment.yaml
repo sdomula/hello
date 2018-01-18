@@ -1,0 +1,30 @@
+apiVersion: "apps/v1beta1"
+kind: "Deployment"
+metadata:
+  name: "{{ .Chart.Name }}-{{ .Values.stage }}"
+  labels:
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    app: {{ .Chart.Name | quote }}
+    stage: {{ .Values.stage | quote }}
+spec:
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name | quote }}
+    spec:
+      containers:
+      - name: "hello"
+        image: "{{ .Values.repo }}:{{ .Values.tag }}"
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: "/healthz"
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: "/healthz"
+            port: 8080

@@ -1,0 +1,4 @@
+apiVersion: "v1"
+description: "a simple hello world server"
+name: "hello"
+version: "0.1.0"

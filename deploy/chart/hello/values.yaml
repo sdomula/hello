@@ -1,0 +1,10 @@
+repo: "sdomula/hello"
+tag: "latest"
+
+replicas: 1
+
+stage: "dev"
+
+service:
+  enabled: true
+  port: 30001
