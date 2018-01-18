@@ -14,5 +14,5 @@ func main() {
 
 func hello(res http.ResponseWriter, req *http.Request) {
 	res.WriteHeader(http.StatusOK)
-	fmt.Fprintf(res, "Hello World")
+	fmt.Fprintf(res, "Hello Docker")
 }
