@@ -17,5 +17,5 @@ func main() {
 
 func hello(res http.ResponseWriter, req *http.Request) {
 	res.WriteHeader(http.StatusOK)
-	fmt.Fprintf(res, "Hello Kubernetes")
+	fmt.Fprintf(res, "Hello Helm")
 }
